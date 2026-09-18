@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishan AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app">
+    <h1>🤖 Krishan AI</h1>
+    <p>Photo, Chart & Image Analyzer</p>
+
+    <div class="box">
+      <input type="file" id="imageInput" accept="image/*">
+
+      <img id="preview" style="display:none;">
+
+      <textarea
+        id="question"
+        placeholder="Apna sawal likhe..."
+      ></textarea>
+
+      <button onclick="askAI()">🔍 Analyze / Ask AI</button>
+
+      <div id="loading" style="display:none;">
+        ⏳ Krishan AI soch raha hai...
+      </div>
+
+      <div id="answer"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
