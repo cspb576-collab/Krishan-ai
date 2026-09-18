@@ -1,37 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Krishan AI</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <title>Krishan AI – Photo Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <div class="app">
-    <h1>🤖 Krishan AI</h1>
-    <p>Photo, Chart & Image Analyzer</p>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <div class="brand">Krishan AI</div>
+        <div class="subtitle">Photo • Chart • OCR • Public Info</div>
+      </div>
+      <span class="status">AI</span>
+    </header>
 
-    <div class="box">
-      <input type="file" id="imageInput" accept="image/*">
+    <section class="card upload-card">
+      <label class="upload">
+        <input id="imageInput" type="file" accept="image/*" />
+        <span class="upload-icon">＋</span>
+        <strong>Photo / Screenshot चुनें</strong>
+        <small>किसी भी image, document या trading chart को upload करें</small>
+      </label>
 
-      <img id="preview" style="display:none;">
-
-      <textarea
-        id="question"
-        placeholder="Apna sawal likhe..."
-      ></textarea>
-
-      <button onclick="askAI()">🔍 Analyze / Ask AI</button>
-
-      <div id="loading" style="display:none;">
-        ⏳ Krishan AI soch raha hai...
+      <div id="previewWrap" class="preview-wrap hidden">
+        <img id="preview" alt="Preview" />
+        <button id="removeBtn" class="ghost">हटाएँ</button>
       </div>
 
-      <div id="answer"></div>
-    </div>
-  </div>
+      <textarea id="question" placeholder="इमेज के बारे में क्या जानना है? जैसे: इस chart का trend बताओ, इसमें लिखा text निकालो..."></textarea>
+      <button id="analyzeBtn" class="primary">🔍 Analyze करें</button>
+      <div id="analyzeStatus" class="status-text"></div>
+    </section>
 
+    <section class="card">
+      <h2>🌐 Public Information</h2>
+      <p class="hint">किसी व्यक्ति/चीज के बारे में केवल सार्वजनिक और गैर-संवेदनशील जानकारी खोजें।</p>
+      <div class="row">
+        <input id="searchInput" placeholder="जैसे: भारत का वर्तमान RBI governor" />
+        <button id="searchBtn" class="secondary">Search</button>
+      </div>
+      <div id="searchStatus" class="status-text"></div>
+    </section>
+
+    <section class="card result-card">
+      <div class="result-head">
+        <h2>📋 Result</h2>
+        <button id="copyBtn" class="ghost">Copy</button>
+      </div>
+      <pre id="result">यहाँ AI का जवाब दिखाई देगा…</pre>
+    </section>
+
+    <footer>
+      <small>Privacy: private identity, private address/contact और sensitive personal data निकालने के लिए यह app नहीं बनाया गया है.</small>
+    </footer>
+  </main>
   <script src="app.js"></script>
 </body>
 </html>
